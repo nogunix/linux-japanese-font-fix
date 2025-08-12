@@ -6,57 +6,89 @@ A robust Fontconfig setting to fix common Japanese font rendering issues (e.g., 
 
 On a fresh installation of Fedora with a non-Japanese locale (e.g., English), the system may default to using Chinese fonts to display Japanese characters. This happens because the default font priority is not optimized for Japanese, leading to incorrect character shapes (e.g., `直` or `骨`).
 
-This issue has been confirmed on **Fedora 42**. It occurs because the default Noto CJK font package includes glyphs for Japanese, Chinese, and Korean in a single file. For systems with a non-Japanese locale, Fontconfig can easily select the incorrect glyphs for Japanese text.
+This issue has been confirmed on **Fedora 38 and newer** (including Fedora 42).  
+It occurs because the default Noto CJK font package includes glyphs for Japanese, Chinese, and Korean in a single variable font file.  
+For systems with a non-Japanese locale, Fontconfig can easily select the incorrect glyphs for Japanese text.  
+
+For more background, see the [Fedora Project Wiki: Noto CJK Variable Fonts](https://fedoraproject.org/wiki/Changes/Noto_CJK_Variable_Fonts).
 
 ## Before and After
 
-**Before (Incorrect Chinese Glyphs):**
+**Before (Chinese glyphs being used for Japanese text):**
 
-![Incorrect font rendering for Japanese characters](./images/before.png)
+![Fedora rendering Japanese text with incorrect Chinese glyphs](./images/before.png)
 
-**After (Correct Japanese Glyphs):**
+**After (Correct Japanese glyphs being used):**
 
-![Correct font rendering for Japanese characters](./images/after.png)
+![Fedora rendering Japanese text with correct Japanese glyphs](./images/after.png)
 
 ## The Solution
 
 This configuration (`50-user-jp-fonts.conf`) forces the system to use the high-quality Noto CJK JP fonts for Japanese rendering.
 
--   **For Web Browsing:** It assigns `Noto Sans CJK JP` and `Noto Serif CJK JP` to the generic `sans-serif` and `serif` families, ensuring stable rendering in browsers.
--   **For Developers:** It sets up a sophisticated `monospace` configuration that prioritizes `Noto Sans Mono` for code (for maximum readability of Latin characters and symbols) and seamlessly falls back to `Noto Sans Mono CJK JP` for Japanese comments.
+- **For Web Browsing:** Assigns `Noto Sans CJK JP` and `Noto Serif CJK JP` to the generic `sans-serif` and `serif` families, ensuring stable rendering in browsers.
+- **For Developers:** Sets up a sophisticated `monospace` configuration that prioritizes `Noto Sans Mono` for code (maximum readability of Latin characters and symbols) and seamlessly falls back to `Noto Sans Mono CJK JP` for Japanese comments.
 
-    > **Note:** This configuration is optimized for systems where `Noto Sans Mono` is the default monospace font, as is common on Fedora. You can check your system's default by running `fc-match monospace`. If the output is different, you may need to adjust the font names in `50-user-jp-fonts.conf` accordingly.
+> **Note:** This configuration is optimized for systems where `Noto Sans Mono` is the default monospace font (common on Fedora).  
+> You can check by running:
+> ```bash
+> fc-match monospace
+> ```
+> If the output is different (e.g., `DejaVu Sans Mono`), change the `Noto Sans Mono` entries in `50-user-jp-fonts.conf` accordingly.
 
 ## Prerequisites
 
-This configuration is intended for **Fedora 42**. You need to have the Noto CJK variable fonts installed.
+This configuration is intended for **Fedora 38+**.  
+You need to have the Noto CJK variable fonts installed.
 
 **On Fedora:**
 ```bash
-# Install the necessary Noto fonts (this is a single command):
-sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts google-noto-sans-mono-fonts google-noto-sans-mono-cjk-jp-fonts
+sudo dnf install   google-noto-sans-cjk-vf-fonts   google-noto-serif-cjk-vf-fonts   google-noto-sans-mono-fonts   google-noto-sans-mono-cjk-vf-fonts
 ```
 
 ## Installation
 
-You can install this configuration for a single user.
+You can install this configuration for a single user:
 
-1.  Create the configuration directory if it doesn't exist:
-    ```bash
-    mkdir -p ~/.config/fontconfig/conf.d
-    ```
+1. Create the configuration directory if it doesn't exist:
+   ```bash
+   mkdir -p ~/.config/fontconfig/conf.d
+   ```
 
-2.  Copy the font configuration file:
-    ```bash
-    cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
-    ```
+2. Copy the font configuration file:
+   ```bash
+   cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
+   ```
 
-3.  Rebuild the font cache:
-    ```bash
-    fc-cache -fv
-    ```
+3. Rebuild the font cache:
+   ```bash
+   fc-cache -fv ~/.config/fontconfig
+   ```
+   *(Specifying the directory speeds up the cache rebuild compared to scanning the whole system.)*
 
-4.  Restart your applications (or log out and log back in) to see the changes.
+4. Restart your applications (or log out and log back in) to apply the changes.
+
+## Verification
+
+To confirm the fonts are applied correctly:
+
+```bash
+fc-match 'sans:lang=ja'
+fc-match 'serif:lang=ja'
+fc-match 'monospace:lang=ja'
+```
+
+Expected output examples:
+```
+NotoSansCJK-VF.ttc: "Noto Sans CJK JP" "Regular"
+NotoSerifCJK-VF.ttc: "Noto Serif CJK JP" "Regular"
+NotoSansMonoCJK-VF.ttc: "Noto Sans Mono CJK JP" "Regular"
+```
+
+You can also check the fallback order:
+```bash
+fc-match -s 'monospace:lang=ja' | head -n 5
+```
 
 ## License
 
