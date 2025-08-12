@@ -8,9 +8,9 @@ A robust Fontconfig setting to fix common Japanese font rendering issues (e.g., 
 
 On a fresh installation of Fedora with a non-Japanese locale (e.g., English), the system may default to using Chinese fonts to display Japanese characters. This happens because the default font priority is not optimized for Japanese, leading to incorrect character shapes (e.g., `直` or `骨`).
 
-This issue has been confirmed on **Fedora 38 and newer** (including Fedora 42).  
-It occurs because the default Noto CJK font package includes glyphs for Japanese, Chinese, and Korean in a single variable font file.  
-For systems with a non-Japanese locale, Fontconfig can easily select the incorrect glyphs for Japanese text.  
+This issue has been confirmed on **Fedora 38 and newer** (including Fedora 42).
+It occurs because the default Noto CJK font package includes glyphs for Japanese, Chinese, and Korean in a single variable font file.
+For systems with a non-Japanese locale, Fontconfig can easily select the incorrect glyphs for Japanese text.
 
 For more background, see the [Fedora Project Wiki: Noto CJK Variable Fonts](https://fedoraproject.org/wiki/Changes/Noto_CJK_Variable_Fonts).
 
@@ -31,7 +31,7 @@ This configuration (`50-user-jp-fonts.conf`) forces the system to use the high-q
 - **For Web Browsing:** Assigns `Noto Sans CJK JP` and `Noto Serif CJK JP` to the generic `sans-serif` and `serif` families, ensuring stable rendering in browsers.
 - **For Developers:** Sets up a sophisticated `monospace` configuration that prioritizes `Noto Sans Mono` for code (maximum readability of Latin characters and symbols) and seamlessly falls back to `Noto Sans Mono CJK JP` for Japanese comments.
 
-> **Note:** This configuration is optimized for systems where `Noto Sans Mono` is the default monospace font (common on Fedora).  
+> **Note:** This configuration is optimized for systems where `Noto Sans Mono` is the default monospace font (common on Fedora).
 > You can check by running:
 > ```bash
 > fc-match monospace
@@ -40,7 +40,7 @@ This configuration (`50-user-jp-fonts.conf`) forces the system to use the high-q
 
 ## Prerequisites
 
-This configuration is intended for **Fedora 38+**.  
+This configuration is intended for **Fedora 38+**.
 You need to have the Noto CJK variable fonts installed.
 
 **On Fedora:**
