@@ -1,5 +1,7 @@
 # Linux Japanese Font Fix
 
+[English](./README.md) | [日本語](./README.ja.md)
+
 A robust Fontconfig setting to fix common Japanese font rendering issues (e.g., the "Chinese font problem") on Fedora systems, particularly when using a non-Japanese locale.
 
 ## The Problem
