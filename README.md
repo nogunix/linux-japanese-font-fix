@@ -56,11 +56,10 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 The easiest way is to download just the configuration file using `wget`.
 
-1.  Create the directory and download the configuration file:
+1.  Copy and paste the following command into your terminal and run it:
 
     ```bash
-    mkdir -p ~/.config/fontconfig/conf.d
-    wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
+    mkdir -p ~/.config/fontconfig/conf.d && wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
     ```
 
 2.  Rebuild the font cache:
