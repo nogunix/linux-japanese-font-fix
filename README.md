@@ -52,29 +52,51 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ## Installation
 
-1. Clone this repository and navigate into the directory:
-   ```bash
-   test -d linux-japanese-font-fix || git clone https://github.com/nogunix/linux-japanese-font-fix.git
-   cd linux-japanese-font-fix
-   ```
+### For General Users (Recommended)
 
-2. Create the configuration directory if it doesn't exist:
-   ```bash
-   mkdir -p ~/.config/fontconfig/conf.d
-   ```
+The easiest way is to download just the configuration file using `wget`.
 
-3. Copy the font configuration file:
-   ```bash
-   cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
-   ```
+1.  Create the directory and download the configuration file:
 
-4. Rebuild the font cache:
-   ```bash
-   fc-cache -fv ~/.config/fontconfig
-   ```
-   *(Specifying the directory speeds up the cache rebuild compared to scanning the whole system.)*
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d
+    wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
+    ```
 
-5. Restart your applications (or log out and log back in) to apply the changes.
+2.  Rebuild the font cache:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+    *(Specifying the directory speeds up the cache rebuild compared to scanning the whole system.)*
+
+3.  Restart your applications (or log out and log back in) to apply the changes.
+
+### For Developers (git clone)
+
+If you prefer to clone the entire repository to inspect or modify the configuration:
+
+1.  Clone this repository and navigate into the directory:
+    ```bash
+    test -d linux-japanese-font-fix || git clone https://github.com/nogunix/linux-japanese-font-fix.git
+    cd linux-japanese-font-fix
+    ```
+
+2.  Create the configuration directory if it doesn't exist:
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d
+    ```
+
+3.  Copy the font configuration file:
+    ```bash
+    cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
+    ```
+
+4.  Rebuild the font cache:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+
+5.  Restart your applications (or log out and log back in) to apply the changes.
 
 ## Verification
 

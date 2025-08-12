@@ -53,29 +53,51 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ## インストール手順
 
-1. リポジトリをクローンして、ディレクトリに移動します:
-   ```bash
-   test -d linux-japanese-font-fix || git clone https://github.com/nogunix/linux-japanese-font-fix.git
-   cd linux-japanese-font-fix
-   ```
+### 一般ユーザー向け（推奨）
 
-2. 設定ディレクトリがなければ作成します:
-   ```bash
-   mkdir -p ~/.config/fontconfig/conf.d
-   ```
+`wget` を使って、設定ファイルのみをダウンロードする簡単な方法です。
 
-3. 設定ファイルをコピーします:
-   ```bash
-   cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
-   ```
+1.  設定ディレクトリを作成し、ファイルをダウンロードします:
 
-4. フォントキャッシュを再構築します:
-   ```bash
-   fc-cache -fv ~/.config/fontconfig
-   ```
-   *(ディレクトリを指定すると、システム全体をスキャンするより高速に再構築できます)*
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d
+    wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
+    ```
 
-5. アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
+2.  フォントキャッシュを再構築します:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+    *(ディレクトリを指定すると、システム全体をスキャンするより高速に再構築できます)*
+
+3.  アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
+
+### 開発者向け (git clone)
+
+リポジトリ全体をクローンして設定を試したい場合は、こちらの手順を使用します。
+
+1.  リポジトリをクローンして、ディレクトリに移動します:
+    ```bash
+    test -d linux-japanese-font-fix || git clone https://github.com/nogunix/linux-japanese-font-fix.git
+    cd linux-japanese-font-fix
+    ```
+
+2.  設定ディレクトリがなければ作成します:
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d
+    ```
+
+3.  設定ファイルをコピーします:
+    ```bash
+    cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
+    ```
+
+4.  フォントキャッシュを再構築します:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+
+5.  アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
 
 ## 適用確認
 
