@@ -8,6 +8,16 @@ On a fresh installation of Fedora with a non-Japanese locale (e.g., English), th
 
 This issue has been confirmed on **Fedora 42**. It occurs because the default Noto CJK font package includes glyphs for Japanese, Chinese, and Korean in a single file. For systems with a non-Japanese locale, Fontconfig can easily select the incorrect glyphs for Japanese text.
 
+## Before and After
+
+**Before (Incorrect Chinese Glyphs):**
+
+![Incorrect font rendering for Japanese characters](./images/before.png)
+
+**After (Correct Japanese Glyphs):**
+
+![Correct font rendering for Japanese characters](./images/after.png)
+
 ## The Solution
 
 This configuration (`50-user-jp-fonts.conf`) forces the system to use the high-quality Noto CJK JP fonts for Japanese rendering.
@@ -25,7 +35,8 @@ This configuration is intended for **Fedora 42**. You need to have the Noto CJK 
 sudo dnf install \
   google-noto-sans-cjk-vf-fonts \   # For sans-serif Japanese text
   google-noto-serif-cjk-vf-fonts \  # For serif Japanese text
-  google-noto-sans-mono-fonts       # For Latin/symbol monospace (code)
+  google-noto-sans-mono-fonts \     # For Latin/symbol monospace (code)
+  google-noto-mono-cjk-fonts        # For Japanese monospace (code comments)
 ```
 
 ## Installation
