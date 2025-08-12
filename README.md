@@ -31,12 +31,8 @@ This configuration is intended for **Fedora 42**. You need to have the Noto CJK 
 
 **On Fedora:**
 ```bash
-# Install the necessary Noto fonts.
-sudo dnf install \
-  google-noto-sans-cjk-vf-fonts \   # For sans-serif Japanese text
-  google-noto-serif-cjk-vf-fonts \  # For serif Japanese text
-  google-noto-sans-mono-fonts \     # For Latin/symbol monospace (code)
-  google-noto-mono-cjk-fonts        # For Japanese monospace (code comments)
+# Install the necessary Noto fonts (this is a single command):
+sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts google-noto-sans-mono-fonts google-noto-sans-mono-cjk-jp-fonts
 ```
 
 ## Installation
