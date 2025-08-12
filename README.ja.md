@@ -51,23 +51,29 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ## インストール手順
 
-1. 設定ディレクトリがなければ作成します:
+1. リポジトリをクローンして、ディレクトリに移動します:
+   ```bash
+   git clone https://github.com/nogunix/linux-japanese-font-fix.git
+   cd linux-japanese-font-fix
+   ```
+
+2. 設定ディレクトリがなければ作成します:
    ```bash
    mkdir -p ~/.config/fontconfig/conf.d
    ```
 
-2. 設定ファイルをコピーします:
+3. 設定ファイルをコピーします:
    ```bash
    cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
    ```
 
-3. フォントキャッシュを再構築します:
+4. フォントキャッシュを再構築します:
    ```bash
    fc-cache -fv ~/.config/fontconfig
    ```
    *(ディレクトリを指定すると、システム全体をスキャンするより高速に再構築できます)*
 
-4. アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
+5. アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
 
 ## 適用確認
 
