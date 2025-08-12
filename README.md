@@ -43,7 +43,7 @@ You need to have the Noto CJK variable fonts installed.
 
 **On Fedora:**
 ```bash
-sudo dnf install   google-noto-sans-cjk-vf-fonts   google-noto-serif-cjk-vf-fonts   google-noto-sans-mono-fonts   google-noto-sans-mono-cjk-vf-fonts
+sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts google-noto-sans-mono-fonts google-noto-sans-mono-cjk-vf-fonts
 ```
 
 ## Installation
