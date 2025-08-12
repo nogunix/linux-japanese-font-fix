@@ -57,11 +57,10 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 `wget` を使って、設定ファイルのみをダウンロードする簡単な方法です。
 
-1.  設定ディレクトリを作成し、ファイルをダウンロードします:
+1.  以下のコマンドをコピーしてターミナルに貼り付け、実行します:
 
     ```bash
-    mkdir -p ~/.config/fontconfig/conf.d
-    wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
+    mkdir -p ~/.config/fontconfig/conf.d && wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
     ```
 
 2.  フォントキャッシュを再構築します:
