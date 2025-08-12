@@ -52,7 +52,7 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 1. Clone this repository and navigate into the directory:
    ```bash
-   git clone https://github.com/nogunix/linux-japanese-font-fix.git
+   test -d linux-japanese-font-fix || git clone https://github.com/nogunix/linux-japanese-font-fix.git
    cd linux-japanese-font-fix
    ```
 
@@ -77,7 +77,6 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 ## Verification
 
 To confirm the fonts are applied correctly:
-
 ```bash
 fc-match 'sans:lang=ja'
 fc-match 'serif:lang=ja'
