@@ -25,6 +25,8 @@ This configuration (`50-user-jp-fonts.conf`) forces the system to use the high-q
 -   **For Web Browsing:** It assigns `Noto Sans CJK JP` and `Noto Serif CJK JP` to the generic `sans-serif` and `serif` families, ensuring stable rendering in browsers.
 -   **For Developers:** It sets up a sophisticated `monospace` configuration that prioritizes `Noto Sans Mono` for code (for maximum readability of Latin characters and symbols) and seamlessly falls back to `Noto Sans Mono CJK JP` for Japanese comments.
 
+    > **Note:** This configuration is optimized for systems where `Noto Sans Mono` is the default monospace font, as is common on Fedora. You can check your system's default by running `fc-match monospace`. If the output is different, you may need to adjust the font names in `50-user-jp-fonts.conf` accordingly.
+
 ## Prerequisites
 
 This configuration is intended for **Fedora 42**. You need to have the Noto CJK variable fonts installed.
