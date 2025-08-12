@@ -89,6 +89,21 @@ You can also check the fallback order:
 ```bash
 fc-match -s 'monospace:lang=ja' | head -n 5
 ```
+## Uninstallation
+
+If you want to remove this configuration:
+
+1. Delete the configuration file from your Fontconfig directory:
+   ```bash
+   rm -f ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf
+   ```
+
+2. Rebuild the font cache:
+   ```bash
+   fc-cache -fv ~/.config/fontconfig
+   ```
+
+3. Restart your applications (or log out and log back in) to revert to the default font selection.
 
 ## License
 
