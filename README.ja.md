@@ -135,4 +135,4 @@ fc-match -s 'monospace:lang=ja' | head -n 5
 
 ## ライセンス
 
-このプロジェクトは MIT ライセンスの下で公開されています。
+このプロジェクトは [MIT ライセンス](LICENSE) の下で公開されています。
