@@ -1,6 +1,6 @@
-# Linux Japanese Font Fix
-
 [![GitHub last commit](https://img.shields.io/github/last-commit/nogunix/linux-japanese-font-fix)](https://github.com/nogunix/linux-japanese-font-fix/commits/main) [![GitHub license](https://img.shields.io/github/license/nogunix/linux-japanese-font-fix)](#license)
+
+# Linux Japanese Font Fix
 
 English | [日本語](README.ja.md)
 
