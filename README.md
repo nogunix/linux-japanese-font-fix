@@ -135,4 +135,5 @@ If you want to remove this configuration:
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
+
