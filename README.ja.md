@@ -2,7 +2,7 @@
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/nogunix/linux-japanese-font-fix)](https://github.com/nogunix/linux-japanese-font-fix/commits/main) [![GitHub license](https://img.shields.io/github/license/nogunix/linux-japanese-font-fix)](#license)
 
-[English](./README.md) | [日本語](./README.ja.md)
+[English](README.md) | 日本語
 
 日本語以外のロケールを使用している Fedora システムで発生しがちな日本語フォントの表示不具合（いわゆる「中華フォント問題」）を解消するための、堅牢な Fontconfig 設定です。
 
