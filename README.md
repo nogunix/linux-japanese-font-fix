@@ -141,6 +141,16 @@ fc-match -s 'monospace:lang=ja' | head -n 5
 ```
 ## Uninstallation
 
+### If installed via DNF/Copr
+
+If you installed the package using DNF from Copr, you can remove it with:
+
+```bash
+sudo dnf remove linux-japanese-font-fix
+```
+
+This will automatically remove the configuration file and rebuild the font cache.
+
 If you want to remove this configuration:
 
 1. Delete the configuration file from your Fontconfig directory:
