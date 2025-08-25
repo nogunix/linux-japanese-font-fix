@@ -143,6 +143,16 @@ fc-match -s 'monospace:lang=ja' | head -n 5
 
 ## アンインストール手順
 
+### DNF/Copr経由でインストールした場合
+
+CoprからDNFを使用してパッケージをインストールした場合、以下のコマンドで削除できます。
+
+```bash
+sudo dnf remove linux-japanese-font-fix
+```
+
+これにより、設定ファイルが自動的に削除され、フォントキャッシュが再構築されます。
+
 1. 設定ファイルを削除します:
    ```bash
    rm -f ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf
