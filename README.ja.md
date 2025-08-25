@@ -53,7 +53,7 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ## インストール手順
 
-### 一般ユーザー向け（wget）
+### 一般ユーザー向け（推奨）
 
 Coprリポジトリから直接この設定をインストールできます。
 
@@ -74,6 +74,24 @@ Coprリポジトリから直接この設定をインストールできます。
     *(この手順はRPMのインストール後スクリプトによって自動的に処理されますが、明確にするために含めることをお勧めします。)*
 
 4.  アプリケーションを再起動するか、ログアウト・再ログインして変更を適用します。
+
+### 一般ユーザー向け（wget）
+
+`wget` を使って、設定ファイルのみをダウンロードする簡単な方法です。
+
+1.  以下のコマンドをコピーしてターミナルに貼り付け、実行します:
+
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d && wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
+    ```
+
+2.  フォントキャッシュを再構築します:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+    *(ディレクトリを指定すると、システム全体をスキャンするより高速に再構築できます)*
+
+3.  アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
 
 ### 開発者向け (git clone)
 
@@ -101,24 +119,6 @@ Coprリポジトリから直接この設定をインストールできます。
     ```
 
 5.  アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
-
-### 一般ユーザー向け（推奨）
-
-`wget` を使って、設定ファイルのみをダウンロードする簡単な方法です。
-
-1.  以下のコマンドをコピーしてターミナルに貼り付け、実行します:
-
-    ```bash
-    mkdir -p ~/.config/fontconfig/conf.d && wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
-    ```
-
-2.  フォントキャッシュを再構築します:
-    ```bash
-    fc-cache -fv ~/.config/fontconfig
-    ```
-    *(ディレクトリを指定すると、システム全体をスキャンするより高速に再構築できます)*
-
-3.  アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
 
 ## 適用確認
 

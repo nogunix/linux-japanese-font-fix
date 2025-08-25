@@ -52,6 +52,28 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ## Installation
 
+### For General Users (Recommended)
+
+You can install this configuration directly from the Copr repository.
+
+1.  **Enable the Copr repository:**
+    ```bash
+    sudo dnf copr enable nogunix/linux-japanese-font-fix
+    ```
+
+2.  **Install the package:**
+    ```bash
+    sudo dnf install linux-japanese-font-fix
+    ```
+
+3.  **Rebuild the font cache:**
+    ```bash
+    sudo fc-cache -fv
+    ```
+    *(This step is automatically handled by the RPM post-installation script, but it's good practice to include it for clarity.)*
+
+4.  Restart your applications (or log out and log back in) to apply the changes.
+
 ### For General Users (wget)
 
 The easiest way is to download just the configuration file using `wget`.
@@ -80,7 +102,7 @@ If you prefer to clone the entire repository to inspect or modify the configurat
     cd linux-japanese-font-fix
     ```
 
-2.  Create the configuration directory if it doesn't exist:
+2.  Create the configuration directory if it doesn\'t exist:
     ```bash
     mkdir -p ~/.config/fontconfig/conf.d
     ```
@@ -97,27 +119,6 @@ If you prefer to clone the entire repository to inspect or modify the configurat
 
 5.  Restart your applications (or log out and log back in) to apply the changes.
 
-### For General Users (Recommended)
-
-You can install this configuration directly from the Copr repository.
-
-1.  **Enable the Copr repository:**
-    ```bash
-    sudo dnf copr enable nogunix/linux-japanese-font-fix
-    ```
-
-2.  **Install the package:**
-    ```bash
-    sudo dnf install linux-japanese-font-fix
-    ```
-
-3.  **Rebuild the font cache:**
-    ```bash
-    sudo fc-cache -fv
-    ```
-    *(This step is automatically handled by the RPM post-installation script, but it's good practice to include it for clarity.)*
-
-4.  Restart your applications (or log out and log back in) to apply the changes.
 
 ## Verification
 
