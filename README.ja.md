@@ -1,6 +1,8 @@
+[![GitHub last commit](https://img.shields.io/github/last-commit/nogunix/linux-japanese-font-fix)](https://github.com/nogunix/linux-japanese-font-fix/commits/main) [![GitHub license](https://img.shields.io/github/license/nogunix/linux-japanese-font-fix)](#license)
+
 # Linux Japanese Font Fix
 
-[English](./README.md) | [日本語](./README.ja.md)
+[English](README.md) | 日本語
 
 日本語以外のロケールを使用している Fedora システムで発生しがちな日本語フォントの表示不具合（いわゆる「中華フォント問題」）を解消するための、堅牢な Fontconfig 設定です。
 
@@ -51,29 +53,50 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ## インストール手順
 
-1. リポジトリをクローンして、ディレクトリに移動します:
-   ```bash
-   git clone https://github.com/nogunix/linux-japanese-font-fix.git
-   cd linux-japanese-font-fix
-   ```
+### 一般ユーザー向け（推奨）
 
-2. 設定ディレクトリがなければ作成します:
-   ```bash
-   mkdir -p ~/.config/fontconfig/conf.d
-   ```
+`wget` を使って、設定ファイルのみをダウンロードする簡単な方法です。
 
-3. 設定ファイルをコピーします:
-   ```bash
-   cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
-   ```
+1.  以下のコマンドをコピーしてターミナルに貼り付け、実行します:
 
-4. フォントキャッシュを再構築します:
-   ```bash
-   fc-cache -fv ~/.config/fontconfig
-   ```
-   *(ディレクトリを指定すると、システム全体をスキャンするより高速に再構築できます)*
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d && wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
+    ```
 
-5. アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
+2.  フォントキャッシュを再構築します:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+    *(ディレクトリを指定すると、システム全体をスキャンするより高速に再構築できます)*
+
+3.  アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
+
+### 開発者向け (git clone)
+
+リポジトリ全体をクローンして設定を試したい場合は、こちらの手順を使用します。
+
+1.  リポジトリをクローンして、ディレクトリに移動します:
+    ```bash
+    test -d linux-japanese-font-fix || git clone https://github.com/nogunix/linux-japanese-font-fix.git
+    cd linux-japanese-font-fix
+    ```
+
+2.  設定ディレクトリがなければ作成します:
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d
+    ```
+
+3.  設定ファイルをコピーします:
+    ```bash
+    cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
+    ```
+
+4.  フォントキャッシュを再構築します:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+
+5.  アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
 
 ### Copr経由でのインストール
 
@@ -134,4 +157,5 @@ fc-match -s 'monospace:lang=ja' | head -n 5
 
 ## ライセンス
 
-このプロジェクトは MIT ライセンスの下で公開されています。
+このプロジェクトは [MIT ライセンス](LICENSE) の下で公開されています。
+

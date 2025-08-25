@@ -1,6 +1,8 @@
+[![GitHub last commit](https://img.shields.io/github/last-commit/nogunix/linux-japanese-font-fix)](https://github.com/nogunix/linux-japanese-font-fix/commits/main) [![GitHub license](https://img.shields.io/github/license/nogunix/linux-japanese-font-fix)](#license)
+
 # Linux Japanese Font Fix
 
-[English](./README.md) | [日本語](./README.ja.md)
+English | [日本語](README.ja.md)
 
 A robust Fontconfig setting to fix common Japanese font rendering issues (e.g., the "Chinese font problem") on Fedora systems, particularly when using a non-Japanese locale.
 
@@ -50,29 +52,50 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ## Installation
 
-1. Clone this repository and navigate into the directory:
-   ```bash
-   git clone https://github.com/nogunix/linux-japanese-font-fix.git
-   cd linux-japanese-font-fix
-   ```
+### For General Users (Recommended)
 
-2. Create the configuration directory if it doesn't exist:
-   ```bash
-   mkdir -p ~/.config/fontconfig/conf.d
-   ```
+The easiest way is to download just the configuration file using `wget`.
 
-3. Copy the font configuration file:
-   ```bash
-   cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
-   ```
+1.  Copy and paste the following command into your terminal and run it:
 
-4. Rebuild the font cache:
-   ```bash
-   fc-cache -fv ~/.config/fontconfig
-   ```
-   *(Specifying the directory speeds up the cache rebuild compared to scanning the whole system.)*
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d && wget -O ~/.config/fontconfig/conf.d/50-user-jp-fonts.conf https://raw.githubusercontent.com/nogunix/linux-japanese-font-fix/main/50-user-jp-fonts.conf
+    ```
 
-5. Restart your applications (or log out and log back in) to apply the changes.
+2.  Rebuild the font cache:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+    *(Specifying the directory speeds up the cache rebuild compared to scanning the whole system.)*
+
+3.  Restart your applications (or log out and log back in) to apply the changes.
+
+### For Developers (git clone)
+
+If you prefer to clone the entire repository to inspect or modify the configuration:
+
+1.  Clone this repository and navigate into the directory:
+    ```bash
+    test -d linux-japanese-font-fix || git clone https://github.com/nogunix/linux-japanese-font-fix.git
+    cd linux-japanese-font-fix
+    ```
+
+2.  Create the configuration directory if it doesn't exist:
+    ```bash
+    mkdir -p ~/.config/fontconfig/conf.d
+    ```
+
+3.  Copy the font configuration file:
+    ```bash
+    cp 50-user-jp-fonts.conf ~/.config/fontconfig/conf.d/
+    ```
+
+4.  Rebuild the font cache:
+    ```bash
+    fc-cache -fv ~/.config/fontconfig
+    ```
+
+5.  Restart your applications (or log out and log back in) to apply the changes.
 
 ### Installation via Copr
 
@@ -99,7 +122,6 @@ You can install this configuration directly from the Copr repository.
 ## Verification
 
 To confirm the fonts are applied correctly:
-
 ```bash
 fc-match 'sans:lang=ja'
 fc-match 'serif:lang=ja'
@@ -135,4 +157,5 @@ If you want to remove this configuration:
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
+
