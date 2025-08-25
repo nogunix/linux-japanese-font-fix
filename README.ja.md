@@ -75,6 +75,28 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 5. アプリケーションを再起動、またはログアウト・再ログインして変更を反映します。
 
+### Copr経由でのインストール
+
+Coprリポジトリから直接この設定をインストールできます。
+
+1.  **Coprリポジトリを有効にする:**
+    ```bash
+    sudo dnf copr enable nogunix/linux-japanese-font-fix
+    ```
+
+2.  **パッケージをインストールする:**
+    ```bash
+    sudo dnf install linux-japanese-font-fix
+    ```
+
+3.  **フォントキャッシュを再構築する:**
+    ```bash
+    sudo fc-cache -fv
+    ```
+    *(この手順はRPMのインストール後スクリプトによって自動的に処理されますが、明確にするために含めることをお勧めします。)*
+
+4.  アプリケーションを再起動するか、ログアウト・再ログインして変更を適用します。
+
 ## 適用確認
 
 次のコマンドで設定が反映されているか確認できます:
