@@ -52,7 +52,7 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ## Installation
 
-### For General Users (Recommended)
+### For General Users (wget)
 
 The easiest way is to download just the configuration file using `wget`.
 
@@ -97,7 +97,7 @@ If you prefer to clone the entire repository to inspect or modify the configurat
 
 5.  Restart your applications (or log out and log back in) to apply the changes.
 
-### Installation via Copr
+### For General Users (Recommended)
 
 You can install this configuration directly from the Copr repository.
 
@@ -120,6 +120,7 @@ You can install this configuration directly from the Copr repository.
 4.  Restart your applications (or log out and log back in) to apply the changes.
 
 ## Verification
+
 
 To confirm the fonts are applied correctly:
 ```bash
