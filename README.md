@@ -1,4 +1,4 @@
-![GitHub last commit](https://img.shields.io/github/last-commit/nogunix/linux-japanese-font-fix)] [![GitHub license](https://img.shields.io/github/license/nogunix/linux-japanese-font-fix)](#license)
+![GitHub last commit](https://img.shields.io/github/last-commit/nogunix/linux-japanese-font-fix) [![GitHub license](https://img.shields.io/github/license/nogunix/linux-japanese-font-fix)](#license)
 
 # Linux Japanese Font Fix
 
