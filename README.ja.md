@@ -169,3 +169,4 @@ sudo dnf remove linux-japanese-font-fix
 
 このプロジェクトは [MIT ライセンス](LICENSE) の下で公開されています。
 
+このプロジェクトは私個人の活動であり、所属する企業・組織の業務や機密情報とは一切関係ありません。

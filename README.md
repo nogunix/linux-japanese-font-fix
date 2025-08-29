@@ -1,4 +1,4 @@
-[![GitHub last commit](https://img.shields.io/github/last-commit/nogunix/linux-japanese-font-fix)](https://github.com/nogunix/linux-japanese-font-fix/commits/main) [![GitHub license](https://img.shields.io/github/license/nogunix/linux-japanese-font-fix)](#license)
+![GitHub last commit](https://img.shields.io/github/last-commit/nogunix/linux-japanese-font-fix)](https://github.com/nogunix/linux-japanese-font-fix/commits/main) [![GitHub license](https://img.shields.io/github/license/nogunix/linux-japanese-font-fix)](#license)
 
 # Linux Japanese Font Fix
 
@@ -102,7 +102,7 @@ If you prefer to clone the entire repository to inspect or modify the configurat
     cd linux-japanese-font-fix
     ```
 
-2.  Create the configuration directory if it doesn\'t exist:
+2.  Create the configuration directory if it doesn't exist:
     ```bash
     mkdir -p ~/.config/fontconfig/conf.d
     ```
@@ -171,3 +171,5 @@ If you want to remove this configuration:
 
 This project is licensed under the [MIT License](LICENSE).
 
+This is my personal project.
+It is created and maintained in my personal capacity, and has no relation to my employer's business or confidential information.
