@@ -7,13 +7,8 @@ copr:
   homepage: https://github.com/nogunix/linux-japanese-font-fix
   contact: nogunix@gmail.com
   chroots:
-    - fedora-rawhide-x86_64
-    - fedora-branched-x86_64
-    - fedora-latest-x86_64
-    - fedora-40-x86_64
-    - fedora-40-aarch64
-    - fedora-39-x86_64
-    - fedora-39-aarch64
+    - fedora-42x86_64
+    - fedora-41x86_64
 packages:
   - name: linux-japanese-font-fix
     script: make -C .copr srpm
