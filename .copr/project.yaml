@@ -1,0 +1,19 @@
+# .copr/project.yaml
+copr:
+  ownername: nogunix
+  projectname: linux-japanese-font-fix
+  description: Fontconfig tweak forcing Noto CJK JP fonts for better Japanese rendering.
+  instructions: dnf copr enable nogunix/linux-japanese-font-fix && dnf install linux-japanese-font-fix
+  homepage: https://github.com/nogunix/linux-japanese-font-fix
+  contact: nogunix@gmail.com
+  chroots:
+    - fedora-rawhide-x86_64
+    - fedora-branched-x86_64
+    - fedora-latest-x86_64
+    - fedora-40-x86_64
+    - fedora-40-aarch64
+    - fedora-39-x86_64
+    - fedora-39-aarch64
+packages:
+  - name: linux-japanese-font-fix
+    script: make -C .copr srpm
