@@ -1,5 +1,5 @@
 Name:           linux-japanese-font-fix
-Version:        1.0
+Version:        1.0.0
 Release:        3%{?dist}
 Summary:        Fontconfig configuration to fix Japanese font rendering on Fedora
 
