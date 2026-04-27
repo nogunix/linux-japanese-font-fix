@@ -10,7 +10,7 @@ A robust Fontconfig setting to fix common Japanese font rendering issues (e.g., 
 
 On a fresh installation of Fedora with a non-Japanese locale (e.g., English), the system may default to using Chinese fonts to display Japanese characters. This happens because the default font priority is not optimized for Japanese, leading to incorrect character shapes (e.g., `直` or `骨`).
 
-This issue has been confirmed on **Fedora 38 and newer** (including Fedora 42).
+This issue has been confirmed on **Fedora 38 and newer** (including Fedora 44).
 It occurs because the default Noto CJK font package includes glyphs for Japanese, Chinese, and Korean in a single variable font file.
 For systems with a non-Japanese locale, Fontconfig can easily select the incorrect glyphs for Japanese text.
 
