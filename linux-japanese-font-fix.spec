@@ -45,9 +45,9 @@ install -m 0644 50-user-jp-fonts.conf %{buildroot}%{_sysconfdir}/fonts/conf.d/
 /usr/bin/fc-cache -f >/dev/null || :
 
 %changelog
-* Mon Apr 27 2026 Nogunix <nogunix@gmail.com> - 1.0-4
+* Mon Apr 27 2026 Nogunix <nogunix@gmail.com> - 1.0.0-4
 - Add support for Fedora 43 and 44
 
-* Sun Nov 02 2025 Nogunix <nogunix@gmail.com> - 1.0-3
+* Sun Nov 02 2025 Nogunix <nogunix@gmail.com> - 1.0.0-3
 - Switch to GitHub source tarball
 
