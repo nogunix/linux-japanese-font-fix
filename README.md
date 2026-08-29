@@ -170,6 +170,3 @@ If you want to remove this configuration:
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-This is my personal project.
-It is created and maintained in my personal capacity, and has no relation to my employer's business or confidential information.
