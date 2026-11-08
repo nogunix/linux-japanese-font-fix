@@ -10,8 +10,6 @@ copr:
     - fedora-45-x86_64
     - fedora-44-x86_64
     - fedora-43-x86_64
-    - fedora-42-x86_64
-    - fedora-41-x86_64
 packages:
   - name: linux-japanese-font-fix
     script: make -C .copr srpm

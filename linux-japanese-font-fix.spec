@@ -47,6 +47,7 @@ install -m 0644 50-user-jp-fonts.conf %{buildroot}%{_sysconfdir}/fonts/conf.d/
 %changelog
 * Sun Nov 08 2026 Nogunix <nogunix@gmail.com> - 1.0.0-5
 - Add support for Fedora 45
+- Drop EOL Fedora 41 and 42 chroots from Copr
 
 * Mon Apr 27 2026 Nogunix <nogunix@gmail.com> - 1.0.0-4
 - Add support for Fedora 43 and 44

@@ -7,6 +7,10 @@
 - Added support for Fedora 45 in `.copr/project.yaml`.
 - Updated READMEs to mention Fedora 45 support.
 
+### Removed
+
+- Removed end-of-life Fedora 41 and 42 chroots from `.copr/project.yaml`.
+
 ## 1.0.0-4 - 2026-04-27
 
 ### Added
