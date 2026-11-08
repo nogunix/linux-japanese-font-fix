@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0-5 - 2026-11-08
+
+### Added
+
+- Added support for Fedora 45 in `.copr/project.yaml`.
+- Updated READMEs to mention Fedora 45 support.
+
 ## 1.0.0-4 - 2026-04-27
 
 ### Added

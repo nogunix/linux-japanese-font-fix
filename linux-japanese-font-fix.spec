@@ -1,6 +1,6 @@
 Name:           linux-japanese-font-fix
 Version:        1.0.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Fontconfig configuration to fix Japanese font rendering on Fedora
 
 License:        MIT
@@ -45,6 +45,9 @@ install -m 0644 50-user-jp-fonts.conf %{buildroot}%{_sysconfdir}/fonts/conf.d/
 /usr/bin/fc-cache -f >/dev/null || :
 
 %changelog
+* Sun Nov 08 2026 Nogunix <nogunix@gmail.com> - 1.0.0-5
+- Add support for Fedora 45
+
 * Mon Apr 27 2026 Nogunix <nogunix@gmail.com> - 1.0.0-4
 - Add support for Fedora 43 and 44
 
