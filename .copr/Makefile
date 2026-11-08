@@ -20,12 +20,19 @@ OUTDIR := $(abspath $(outdir))
 endif
 
 SPEC_FILE := $(abspath $(SPEC_DIR)/linux-japanese-font-fix.spec)
-SOURCE_FILES := $(addprefix $(SPEC_DIR)/,$(TARBALLS))
 
+# Source0 points at the GitHub tag tarball; build an equivalent tarball from
+# the local tree so SRPM creation works offline and without the tag.
 srpm:
 	@rm -rf $(TOPDIR)
 	@mkdir -p $(SOURCES) $(OUTDIR)
-	@cp $(SOURCE_FILES) $(SOURCES)/
+	@set -e; \
+	name=$$(rpmspec -q --srpm --qf '%{name}' $(SPEC_FILE)); \
+	version=$$(rpmspec -q --srpm --qf '%{version}' $(SPEC_FILE)); \
+	source0=$$(rpmspec -P $(SPEC_FILE) | awk '/^Source0:/ {print $$2; exit}'); \
+	tar -C $(SPEC_DIR) --transform "s,^,$$name-$$version/," \
+		--sort=name --owner=0 --group=0 --numeric-owner \
+		-czf $(SOURCES)/$$(basename "$$source0") $(TARBALLS)
 	@rpmbuild -D "_topdir $(TOPDIR)" -bs $(SPEC_FILE)
 	@cp $(SRPMS)/*.src.rpm $(COPR_DIR)/
 	@cp $(SRPMS)/*.src.rpm $(OUTDIR)/

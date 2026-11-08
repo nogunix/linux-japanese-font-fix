@@ -1,0 +1,3 @@
+.copr/_build/
+.copr/srpm.list
+*.src.rpm
