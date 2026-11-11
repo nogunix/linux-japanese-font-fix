@@ -54,7 +54,7 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ### For General Users (Recommended)
 
-You can install this configuration directly from the Copr repository.
+You can install this configuration directly from the Copr repository (available for `x86_64` and `aarch64`).
 
 1.  **Enable the Copr repository:**
     ```bash

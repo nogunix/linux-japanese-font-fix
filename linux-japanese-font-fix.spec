@@ -1,6 +1,6 @@
 Name:           linux-japanese-font-fix
 Version:        1.0.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Fontconfig configuration to fix Japanese font rendering on Fedora
 
 License:        MIT
@@ -45,6 +45,9 @@ install -m 0644 50-user-jp-fonts.conf %{buildroot}%{_sysconfdir}/fonts/conf.d/
 /usr/bin/fc-cache -f >/dev/null || :
 
 %changelog
+* Wed Nov 11 2026 Nogunix <nogunix@gmail.com> - 1.0.0-6
+- Add aarch64 chroots to Copr
+
 * Sun Nov 08 2026 Nogunix <nogunix@gmail.com> - 1.0.0-5
 - Add support for Fedora 45
 - Drop EOL Fedora 41 and 42 chroots from Copr

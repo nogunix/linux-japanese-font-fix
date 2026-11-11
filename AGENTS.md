@@ -22,7 +22,7 @@ When releasing a new version (e.g., to support new Fedora versions):
 
 - Follow `Version-Release` format.
 - Current Version: `1.0.0`
-- Current Release: `5`
+- Current Release: `6`
 
 ## Build System
 

@@ -55,7 +55,7 @@ sudo dnf install google-noto-sans-cjk-vf-fonts google-noto-serif-cjk-vf-fonts go
 
 ### 一般ユーザー向け（推奨）
 
-Coprリポジトリから直接この設定をインストールできます。
+Coprリポジトリから直接この設定をインストールできます（`x86_64` / `aarch64` に対応）。
 
 1.  **Coprリポジトリを有効にする:**
     ```bash

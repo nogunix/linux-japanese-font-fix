@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0-6 - 2026-11-11
+
+### Added
+
+- Added aarch64 chroots (Fedora 43, 44, 45) to `.copr/project.yaml`.
+- Updated READMEs to mention supported architectures.
+
 ## 1.0.0-5 - 2026-11-08
 
 ### Added
