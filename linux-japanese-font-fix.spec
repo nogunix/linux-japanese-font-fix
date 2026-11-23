@@ -1,11 +1,14 @@
+%global baserelease 7
+
 Name:           linux-japanese-font-fix
 Version:        1.0.0
-Release:        6%{?dist}
+Release:        %{baserelease}%{?dist}
 Summary:        Fontconfig configuration to fix Japanese font rendering on Fedora
 
 License:        MIT
 URL:            https://github.com/nogunix/linux-japanese-font-fix
-Source0:        https://github.com/nogunix/linux-japanese-font-fix/archive/refs/tags/v%{version}.tar.gz
+# Each release is tagged v<Version>-<Release> (e.g. v1.0.0-7).
+Source0:        %{url}/archive/refs/tags/v%{version}-%{baserelease}.tar.gz#/%{name}-%{version}-%{baserelease}.tar.gz
 
 BuildArch:      noarch
 
@@ -24,7 +27,7 @@ This configuration (`50-user-jp-fonts.conf`) forces the system to use the
 high-quality Noto CJK JP fonts for Japanese rendering.
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}-%{version}-%{baserelease}
 
 %build
 # Nothing to build, just copy files
@@ -45,6 +48,12 @@ install -m 0644 50-user-jp-fonts.conf %{buildroot}%{_sysconfdir}/fonts/conf.d/
 /usr/bin/fc-cache -f >/dev/null || :
 
 %changelog
+* Mon Nov 23 2026 Nogunix <nogunix@gmail.com> - 1.0.0-7
+- Fix monospace rule: use <string> instead of <family> inside <edit>,
+  which fontconfig silently ignored
+- Point Source0 at the per-release tag (v1.0.0-7) so downloaded sources
+  contain the fix
+
 * Wed Nov 11 2026 Nogunix <nogunix@gmail.com> - 1.0.0-6
 - Add aarch64 chroots to Copr
 
