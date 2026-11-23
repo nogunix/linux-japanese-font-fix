@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_instructions:
+    - path: "**/*.conf"
+      instructions: |
+        Fontconfig XML configuration. Check validity against fonts.dtd.
+        Inside <edit>, values must use <string>. <family> is only valid inside <alias>;
+        fontconfig silently ignores it inside <edit>.
+        Verify that kanji still resolve to Noto Sans CJK JP fonts under a non-Japanese
+        locale (e.g. LANG=en_US.UTF-8).
+    - path: "**/*.spec"
+      instructions: |
+        RPM spec file. Check compliance with the Fedora Packaging Guidelines.
+        When Release is bumped, ensure a %changelog entry exists in the format
+        "* Day Mon DD YYYY Name <email> - 1.0.0-N" and that CHANGELOG.md is updated too.
+    - path: ".copr/**"
+      instructions: |
+        Copr build configuration. Check that the chroots match the Fedora versions
+        listed as supported in README.md and README.ja.md.
+
+chat:
+  auto_reply: true
