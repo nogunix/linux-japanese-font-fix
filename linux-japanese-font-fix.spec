@@ -1,6 +1,6 @@
 Name:           linux-japanese-font-fix
 Version:        1.0.0
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Fontconfig configuration to fix Japanese font rendering on Fedora
 
 License:        MIT
@@ -45,6 +45,10 @@ install -m 0644 50-user-jp-fonts.conf %{buildroot}%{_sysconfdir}/fonts/conf.d/
 /usr/bin/fc-cache -f >/dev/null || :
 
 %changelog
+* Mon Nov 23 2026 Nogunix <nogunix@gmail.com> - 1.0.0-7
+- Fix monospace rule: use <string> instead of <family> inside <edit>,
+  which fontconfig silently ignored
+
 * Wed Nov 11 2026 Nogunix <nogunix@gmail.com> - 1.0.0-6
 - Add aarch64 chroots to Copr
 

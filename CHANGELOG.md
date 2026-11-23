@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-7 - 2026-11-23
+
+### Fixed
+
+- Fixed the monospace rule in `50-user-jp-fonts.conf`: it used `<family>` inside `<edit>`, which fontconfig silently ignores. Switched to `<string>` so kanji in monospace text (editors, terminals) fall back to Noto Sans Mono CJK JP instead of the KR variant under non-Japanese locales.
+
 ## 1.0.0-6 - 2026-11-11
 
 ### Added
