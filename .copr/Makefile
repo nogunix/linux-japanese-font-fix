@@ -35,12 +35,12 @@ srpm:
 	@rm -rf $(TOPDIR)
 	@mkdir -p $(SOURCES) $(OUTDIR)
 	@set -e; \
-	name=$$(rpmspec -q --srpm --qf '%{name}' $(SPEC_FILE)); \
-	version=$$(rpmspec -q --srpm --qf '%{version}' $(SPEC_FILE)); \
 	source0=$$(rpmspec -P $(SPEC_FILE) | awk '/^Source0:/ {print $$2; exit}'); \
-	tar -C $(SPEC_DIR) --transform "s,^,$$name-$$version/," \
+	tarball=$$(basename "$$source0"); \
+	topdir=$${tarball%.tar.gz}; \
+	tar -C $(SPEC_DIR) --transform "s,^,$$topdir/," \
 		--sort=name --owner=0 --group=0 --numeric-owner \
-		-czf $(SOURCES)/$$(basename "$$source0") $(TARBALLS)
+		-czf $(SOURCES)/$$tarball $(TARBALLS)
 	@rpmbuild -D "_topdir $(TOPDIR)" -bs $(SPEC_FILE)
 	@cp $(SRPMS)/*.src.rpm $(COPR_DIR)/
 	@cp $(SRPMS)/*.src.rpm $(OUTDIR)/
